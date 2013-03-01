@@ -9,6 +9,13 @@ application {
     //frameClass = 'javax.swing.JFrame'
 }
 mvcGroups {
+    // MVC Group for "filePanel"
+    'filePanel' {
+        model      = 'groovyedit.FilePanelModel'
+        view       = 'groovyedit.FilePanelView'
+        controller = 'groovyedit.FilePanelController'
+    }
+
     // MVC Group for "groovyEdit"
     'groovyEdit' {
         model      = 'groovyedit.GroovyEditModel'

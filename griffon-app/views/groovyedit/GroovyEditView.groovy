@@ -1,5 +1,18 @@
 package groovyedit
 
+actions {
+    action(id: 'openAction',
+            name: 'Open',
+            mnemonic: 'O',
+            accelerator: shortcut('O'),
+            closure: controller.openFile)
+    action(id: 'quitAction',
+            name: 'Quit',
+            mnemonic: 'Q',
+            accelerator: shortcut('Q'),
+            closure: controller.quit)
+}
+
 fileChooserWindow = fileChooser()
 fileViewerWindow = application(
         title:'GroovyEdit',
@@ -11,11 +24,11 @@ fileViewerWindow = application(
                 imageIcon('/griffon-icon-16x16.png').image] ) {
     menuBar {
         menu('File') {
-            menuItem 'Open'
+            menuItem openAction
             separator()
-            menuItem 'Quit'
+            menuItem quitAction
         }
     }
     borderLayout()
-    tabbedPane(id: 'tabGroup', constraints: CENTER)
+    tabbedPane id: 'tabGroup', constraints: CENTER
 }
